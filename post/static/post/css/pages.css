@@ -68,13 +68,27 @@ div .local, div .category {
     width: 250px;
 }
 
+<<<<<<< HEAD
 .review_image{
     background-image: url(../images/beach.jpg);
+=======
+.frame{
+>>>>>>> 5d04df48e53cb2aac05e4641847bee4b77cb7b26
     display: block;
     width: 250px;
     height: 250px;
 }
 
+<<<<<<< HEAD
+=======
+#review_image{
+    width: 250px;
+    height: 250px;
+}
+
+
+
+>>>>>>> 5d04df48e53cb2aac05e4641847bee4b77cb7b26
 div.review_category {
     margin-top: 3px;
 }

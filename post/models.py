@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:
 #   * Rearrange models' order
@@ -74,6 +75,19 @@ class AuthUserUserPermissions(models.Model):
         managed = False
         db_table = 'auth_user_user_permissions'
 
+=======
+from django.db import models
+
+# Create your models here.
+class User(models.Model):
+    id = models.CharField(primary_key=True, max_length=20)
+    passwd = models.CharField(max_length=20, blank=True, null=True)
+    nickname = models.CharField(unique=True, max_length=20, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'user'
+>>>>>>> 5d04df48e53cb2aac05e4641847bee4b77cb7b26
 
 class Category(models.Model):
     name = models.CharField(primary_key=True, max_length=20)
@@ -81,6 +95,7 @@ class Category(models.Model):
     class Meta:
         managed = False
         db_table = 'category'
+<<<<<<< HEAD
 
 
 class DjangoAdminLog(models.Model):
@@ -136,11 +151,26 @@ class Post(models.Model):
     head_image = models.TextField(blank=True, null=True)
     author = models.ForeignKey('UserInfo', models.DO_NOTHING, db_column='author', to_field='nickname', blank=True,
                                null=True)
+=======
+        
+        # 리뷰 작성 페이지 + 카테고리
+        # 로그인 회원가입
+        # 장고 검색 기능
+        
+class Post(models.Model):
+    pn = models.AutoField(db_column='PN', primary_key=True)  # Field name made lowercase.
+    title = models.CharField(max_length=50, blank=True, null=True)
+    created_at = models.DateField(blank=True, null=True, auto_now_add = True)
+    content = models.TextField(max_length=1000, blank=True, null=True)
+    head_image = models.ImageField(upload_to="post/images/",blank=True, null=True)
+    author = models.ForeignKey('User', models.DO_NOTHING, db_column='author', to_field='nickname', blank=True, null=True)
+>>>>>>> 5d04df48e53cb2aac05e4641847bee4b77cb7b26
     category = models.ForeignKey(Category, models.DO_NOTHING, db_column='category', blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'post'
+<<<<<<< HEAD
 
 
 class UserInfo(models.Model):
@@ -151,3 +181,23 @@ class UserInfo(models.Model):
     class Meta:
         managed = False
         db_table = 'user_info'
+=======
+        
+    def __str__ (self):
+        return self.title
+    
+    def get_absolute_url(self):
+        return f'{self.pk}/'
+
+    def get_image_url(self):
+        return self.head_image[:].decode()
+        
+class Photo(models.Model):
+    postnum = models.ForeignKey('Post', models.DO_NOTHING, db_column='postnum', blank=True, null=True)
+    image = models.CharField(max_length=20, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'photo'
+        
+>>>>>>> 5d04df48e53cb2aac05e4641847bee4b77cb7b26

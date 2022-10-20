@@ -1,5 +1,9 @@
 /my_settings.py
 /db.sqlite3
 
+<<<<<<< HEAD
 .idea/
 migrations/
+=======
+
+>>>>>>> 5d04df48e53cb2aac05e4641847bee4b77cb7b26
